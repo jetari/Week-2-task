@@ -28,13 +28,13 @@ function classifier(input) {
   for (const student of secondInputData) {
     const age = updatedAge(student.dob);
     
-    let assigned = false;
+    let assigned = false; // checks if a student has been put inside a group
 
     for (let i = 1; i <= groupCounter; i++) {
       const key = `group${i}`;
       const group = groups[key];
 
-      if (!group) {
+      if (!group) {           //If a group with the current group number doesn't exist, a new group is created with the current student as  its only member, and the group's attributes are initialized.
         groups[key] = {
           members: [
             {
